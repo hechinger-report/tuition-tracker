@@ -58,7 +58,7 @@ def abbreviator(state):
         "PR": "Puerto Rico"
     }.get(state, '')
 
-for filename in glob.iglob('./school-data-07312018/*.json'):
+for filename in glob.iglob('./school-data-09272018/*.json'):
     with open(filename, 'r+') as f:
         data = json.load(f)
         this_state = data['state']

@@ -202,14 +202,17 @@
         <a href="javascript:void(0)" class="expander-trigger expander-hidden">QUICK FACTS</a>
         <div class="expander-content">
           <div class="stats-mobile">
+            <div class="stats-mobile-details">
             <div class="mobile-stats-info" id="mobile-stats-url"><a href="" target="_blank">Website</a></div>
             <div class="mobile-stats-info" id="mobile-stats-type"></div>
             <div class="mobile-stats-info" id="mobile-stats-degree"><span><strong></strong></span>-year degree</div>
             <div class="mobile-stats-info" id="mobile-stats-hbcu">Historically Black College/Univ. (HBCU) <br/><span></span></div>
-            <div class="mobile-stats-info" id="mobile-stats-acc-rate">Acceptance rate: <br/><span>--</span></div>
-            <div class="mobile-stats-info city-state-label"></div>
+            <div class="mobile-stats-info" id="mobile-stats-acc-rate">Acceptance rate: <span>--</span></div>
+          </div>
+            <div class="mobile-stats-info city-state-label city-state-label-desktop"></div>
           </div>
           <div class="mobile-map-container stats-mobile">
+            <div class="mobile-stats-info city-state-label city-state-label-mobile" ></div>
             <div id="mobile-locator-map" class="locator-map"></div>
           </div>
         </div>
@@ -224,7 +227,7 @@
               <div class="cost-header">Sticker price</div>
 
               <div class="definition emphasis-def" id="sticker-price-def">
-                <p>Total advertised price</p>
+                <p>Total advertised estimated cost for a full-time undergraduate</p></p>
               </div>
             </div>
 
@@ -234,12 +237,12 @@
           <section class="price-right">
 
             <div class="price-label" id="sticker-price"></div>
-            <div class="fine-print">Total advertised estimated cost for a full-time undergraduate, 2015-2016</div>
+            <div class="fine-print">Sticker price in 2015-16 for students living <span id="sticker-living"></span></div>
 
           </section>
           <!--/price-right-->
 
-          <p class="note" id="sticker-price-note">Total costs at <span id="sticker-school"></span> including tuition, fees, <span id="sticker-living"></span>, books, travel and miscellaneous expenses, before scholarships and grants.</p>
+          <p class="note" id="sticker-price-note">Includes tuition, fees<span id="sticker-living-fine"></span>, books and other costs, before scholarships and grants. Data show <span id="who-pays" class="net-span">--</span> percent of full-time, first-time undergraduates in 2015-16 failed to obtain some form of financial aid.</p>
 
       </div>
       <!--/price-->
@@ -261,7 +264,7 @@
                 <option value='2'>$30,001 - $48,000</option>
                 <option value='3'>$48,001 - $75,000</option>
                 <option value='4'>$75,001 - $110,000</option>
-                <option value='5'>More than $110,001</option>
+                <option value='5'>$110,001+</option>
           </select>
         <div class="select-arrow"></div>
         </div>
@@ -293,7 +296,7 @@
           </section>
 
           <!--/price-right-->
-          <p class="note">Data show that <span id="net-pct" class="net-span">--</span> percent of undergraduates, or <span id="net-number" class="net-span">--</span> student(s), paid the price shown here at <span id="net-school" class="net-span">--</span> in 2015-16.</p>
+          <p class="note">Data show that <span id="net-number" class="net-span">--</span> student(s), or <span id="net-pct" class="net-span">--</span> percent of undergraduates receiving federal aid, paid this average price at <span id="net-school" class="net-span">--</span> in 2015-16.</p>
 
 <!--           <p class="note">If you do not qualify for federal aid, you may have to pay the sticker price listed at the <a href="#price">top of the page</a>.</p>
  -->
@@ -311,21 +314,21 @@
 
             <div id="selection-bar" style="display:none">
               <div class="call-container"><div class="call-to-action"><div>Select an income bracket to see net price</div></div></div>
-
-              <div class="choose-variable">
-                <select class="choose" id="choose-family-income-bracket-two">
-                      <option value='1' selected>$0 - $30,000</option>
-                      <option value='2'>$30,001 - $48,000</option>
-                      <option value='3'>$48,001 - $75,000</option>
-                      <option value='4'>$75,001 - $110,000</option>
-                      <option value='5'>More than $110,001</option>
-                </select>
-              <div class="select-arrow"></div>
-              </div>
             </div>
             <section class="graphic">
               <div class="legend-square"><span class="key sticker-price"></span>Sticker price</div>
-              <div class="legend-square"><span class="key net-price"></span>Net price for <span id="price-bracket">$0 - $30,000</span></div>
+              <div class="legend-square net-price-legend"><span class="key net-price"></span>Net price for
+              <div class="choose-variable-chart">
+                  <select class="choose" id="price-bracket">
+                        <option value='1' selected>$0 - $30,000</option>
+                        <option value='2'>$30,001 - $48,000</option>
+                        <option value='3'>$48,001 - $75,000</option>
+                        <option value='4'>$75,001 - $110,000</option>
+                        <option value='5'>$110,001+</option>
+                  </select>
+                <div class="select-arrow"></div>
+                </div>bracket</div>
+              
 
               <div class="chart" id="sticker-price-chart-container">
                 <svg id="sticker-price-chart"></svg>
@@ -342,14 +345,14 @@
 
                 <div class="choose-variable">
                   <select id="choose-year-family-income">
-                      <option value='1'>2015-16</option>
-                      <option value='2'>2014-15</option>
-                      <option value='3'>2013-14</option>
-                      <option value='4'>2012-13</option>
-                      <option value='5'>2011-12</option>
-                      <option value='6'>2010-11</option>
-                      <option value='7'>2009-10</option>
-                      <option value='8'>2008-09</option>
+                      <option value='2'>2015-16</option>
+                      <option value='3'>2014-15</option>
+                      <option value='4'>2013-14</option>
+                      <option value='5'>2012-13</option>
+                      <option value='6'>2011-12</option>
+                      <option value='7'>2010-11</option>
+                      <option value='8'>2009-10</option>
+                      <option value='9'>2008-09</option>
                   </select>
                   <div class="select-arrow"></div>
                 </div>
@@ -361,19 +364,19 @@
                       <th class="income">Annual family income
                         <div class="sort-table-arrows"></div>
                       </th>
-                      <th class="price">Avg. net price
+                      <th class="price"><span class="avg-price-text">Avg. net price</span>
                         <div class="sort-table-arrows">
                           <a href="javascript:sort(true, 'net-price', 'family-income-table');"><button class="button" title=""><i class="fa fa-chevron-down"></i></button></a>
                           <a href="javascript:sort(false, 'net-price', 'family-income-table');"><button class="button" title=""><i class="fa fa-chevron-up"></i></button></a>
                         </div>
                       </th>
-                      <th class="pct-families">% students
+                      <th class="pct-families"><span class="pct-families-text">% students receiving fed. aid</span>
                         <div class="sort-table-arrows">
                           <a href="javascript:sort(true, 'pct-students', 'family-income-table');"><button class="button" title=""><i class="fa fa-chevron-down"></i></button></a>
                           <a href="javascript:sort(false, 'pct-students', 'family-income-table');"><button class="button" title=""><i class="fa fa-chevron-up"></i></button></a>
                         </div>
                       </th>
-                      <th class="num-families">No. students
+                      <th class="num-families"><span class="num-families-text">No. students</span>
                         <div class="sort-table-arrows">
                           <a href="javascript:sort(true, 'num-students', 'family-income-table');"><button class="button" title=""><i class="fa fa-chevron-down"></i></button></a>
                           <a href="javascript:sort(false, 'num-students', 'family-income-table');"><button class="button" title=""><i class="fa fa-chevron-up"></i></button></a>

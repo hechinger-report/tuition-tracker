@@ -97,6 +97,9 @@
    integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
    crossorigin=""></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+<script type="text/javascript">var pymChild = new pym.Child();</script>
 
 <style scoped>
   body {
@@ -120,6 +123,9 @@
     #retention-chart, #aid-chart, #sticker-price-chart, #grad-rates-chart {
       height:290px; 
     }
+    .note {
+      font-size:11px;
+    }
   }
   @media (max-width: 400px) {
     .graphic-embed-container {
@@ -128,6 +134,11 @@
     }
     .school-name-embed {
       font-size:1.3rem;
+      text-align:right;
+    }
+    .logo-embed img {
+      width:90%;
+      top:35%;
     }
     #choose-family-income-bracket  {
       font-size:12px; 
@@ -136,6 +147,11 @@
     }
     .income-bracket-fluff {
       padding-left:0px;
+    }
+    .note {
+      padding-top:0 !important;
+      padding-bottom:2px !important;
+      font-size:9px;
     }
   }
   @media (max-width: 360px) {
@@ -157,6 +173,9 @@
     }
     #choose-family-income-bracket  {
       font-size:8px; 
+    }
+    .note {
+      font-size:8px;
     }
   }
 </style>
@@ -207,20 +226,6 @@
         </div>
         <div class="school-name-embed-container"><span class="school-name school-name-embed"></span></div>
       </div>
-        <div id="price-embed">
-
-            <section class="price-left-embed">
-
-              <div class="cost-def">
-<!--                <div style="font-weight:600;" class="price-bar-embed">2015-16 | <span class="cost-header-embed">Sticker price: </span><span class="price-label price-label-embed" id="sticker-price"></span> (<span id="sticker-living"></span> <span class="cost-header-embed">) | Net price: </span><span class="price-label price-label-embed" id="calculated-net-price"></span> for students in the <span id="bracket" class="net-span">--</span> </span></div>
-                </div> -->
-              </div>
-
-            </section>
-    </div>
-
-
-
         <section class="family-income">
 
 
@@ -257,7 +262,8 @@
 
               <div class="chart" id="sticker-price-chart-container">
                 <svg id="sticker-price-chart-embed"></svg>
-                <p class="note">Data for net price by income bracket is only available through 2015-16.</p>
+                <p class="note" style="margin-bottom:0;padding-left:10px"><span style="font-weight:bold">Note:</span> Sticker price for students living <span id="sticker-living"></span>. Net price is the average price paid by students in each income bracket and is only reported for students receiving federal aid. Net price data only available through 2015-16.</p>
+                <p class="note" style="padding-top:5px;padding-left:10px"><span style="font-weight:bold">Source:</span> National Center for Education Statistics</p>
               </div>
               <!-- <div class="no-data-placeholder" id="sticker-price-placeholder">No data available for school</div> -->
             </section>
